@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'AwayFontWeb';
+  src: url('AwayFont.eot'); /* IE9 Compat Modes */
+  src: url('AwayFont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('AwayFont.woff') format('woff'), /* Modern Browsers */
+       url('AwayFont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('AwayFont.svg#b705ea29b58229f9920e28a6de0a1ad9') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

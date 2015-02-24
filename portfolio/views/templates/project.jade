@@ -1,0 +1,37 @@
+//- a(href="#") ✕
+.content--project(style=(props.background ? "background-image: url("+props.path+props.background+")" : "background-image: url(http://lorempixel.com/400/500/abstract/)"))
+	//- h1(alt=props.title, class="content--title")= props.title
+	.content--title
+		= props.title
+
+	//- .content--container(#{ if (props.background) style="background-image:url("+props.background+")"})
+	.content--container
+		.description 
+			h2 Description
+			div !{props.content}
+		.images
+			if props.images
+				if props.images.length === 1
+					h2 Image
+					img(src=props.path+props.images[0], alt="")
+				else
+					h2 Images
+					.slider
+						- for i in props.images
+							img(src=props.path+i, alt="")
+
+			hr
+
+			h2 Meta
+			table
+				tr
+					th year
+					td= props.date
+				if !props.background
+					tr
+						th background
+						td lorempixel.com
+
+
+			hr
+

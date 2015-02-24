@@ -1,0 +1,23 @@
+extends layout
+
+block nav
+	//- a(href="posts.html") Blog
+
+	//- for project, index in records.projects
+	//- 	li
+	//- 		a(class="projectlink", href="#"+project.title)= project.title
+
+block content
+	.main
+		h1(class="landing") Gerhard Bliedung <br> Experience Designer, Zurich
+		//- :markdown
+		//- 	 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae accusantium eum, reiciendis. Error cum corporis molestias temporibus, amet corrupti qui non adipisci alias, officiis officia tenetur maiores, repudiandae quaerat vero.
+		
+		.conversation
+		.spinner.hidden
+
+		form(id="talk", method="", action="submitform()")
+			input(type="text", class="conversation--input")
+	.content
+	
+	//- include templates/test.jade

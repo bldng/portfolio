@@ -1,0 +1,453 @@
+@import 'font.css'
+@import '_slider'
+@import '_settings'
+
+$color = salmon
+$human = black
+$bot   = teal
+
+
+normalize-css()
+base()
+
+*
+	box-sizing: border-box
+
+h1.landing
+	color: #efefef
+	line-height: 50px
+	position: fixed
+	z-index: -1
+
+body, html
+	height: 100%;
+	overflow-x: hidden;
+body
+	padding: 50px
+	transition: .4s background
+		
+.main
+	padding: 50px
+	position: absolute
+	background: white
+	top: 0
+	left: 0
+	bottom: 0
+	width: 100vw
+	z-index: 200
+	min-height: 100vh
+	transition: .4s
+	// clip-path: circle(71% at 50% 50%)
+		
+	*
+		transition: .6s
+		transition-delay: .4s
+	
+	&.hidden
+		.conversation
+			div
+				margin-top: 30px
+		position: fixed
+		cursor: pointer
+		background: $bot
+		// clip-path: circle(50px at 50% 50%)
+			
+		overflow: hidden
+		min-height: 0
+		width: 100px
+		height: 100px
+		top: 350px
+		border-radius: 50px
+		left: calc(50% - 50px)
+		
+		&:hover
+			transform: scale(1.2)	
+		*
+			transition-delay: 0
+			transition: .4s
+			opacity: 0
+			pointer-events:none
+			
+	&.howdoyulikethat
+		font-family: "Comic Sans MS" !important
+		color: yellow !important
+		background: purple !important
+
+// @-moz-document url-prefix() 
+// 	.main.hidden
+// 		overflow: hidden
+// 		width: 100px
+// 		height: 100px
+// 		top: 350px
+// 		border-radius: 50px
+// 		left: calc(50% - 50px)
+
+.content--project
+	left: 0
+	top: 0
+	position: absolute
+	margin: 50px
+	background: #000
+	color: black
+	background: $color
+	width: calc(100vw - 100px)
+	transition: 0
+	pointer-events: auto
+	border: 30px solid $color
+	box-shadow: 0 20px 50px rgba(black, .3)
+	// background-image: url(http://www.place-sloth.com/400/300)
+	background-repeat: no-repeat
+	background-position: center center
+	background-size: cover
+	background-blend-mode: multiply;
+	//background-image: url(http://www.lorempixel.com/400/500/)
+	// overflow:hidden
+	
+	clip-path: circle(71% at 50% 50%)
+	a 
+		color: $color
+		text-decoration: underline
+	&.hidden
+		transition: .4s
+		padding-top:120px;
+		opacity:0
+		pointer-events: none
+		clip-path: circle(0% at 50% 50%)
+	li
+		list-style-type: none
+		&:before
+			content: '\2014'
+			margin: 0 20px 0 -30px 
+	.content--title, h1
+		font-family: 'AwayFontWeb'
+		// text-align: center
+		// font-size: 50vh
+		// margin: -300px 0 -100px
+		margin: -180px 0 -200px;
+		pointer-events: none
+		text-rendering: optimizeLegibility
+		-webkit-font-smoothing: antialiased
+		color: $color
+		width:100%
+		height:600px
+		// font-weight: bolder
+		// &:after
+		// 	position: absolute
+		// 	left: 100px
+		// 	top: 100px
+		// 	text-align: left
+		// 	width 100%
+		// 	font-size: 50px
+		// 	content: attr(alt)
+		// 	color: red
+		// 	font-family: futura
+		// 	font-weight: 500
+	.content--container
+		
+		margin: 100px
+		background: white
+		h2
+			color: $color
+		th
+			text-align: left
+			padding-right: 25px
+		tr
+			line-height: 40px;
+		.description,.images
+			width: 50%
+			display: inline-block
+			padding: 50px
+		.images
+			overflow-x: hidden;
+			vertical-align:top
+			img
+				width: 100%
+				height: auto
+a
+	color: #eee
+	text-decoration: none
+	cursor: pointer
+	
+form
+	width: 100%
+	text-align: center
+
+li
+	list-style-type: none
+	
+hr
+	border: none
+	border-top: 1px solid rgba(#666, .5)
+	
+.conversation--input
+	margin: 100px 20vw 0 20vw
+	outline: none
+	border: none
+	// light: eaeaea
+	background: #333 
+	padding: 25px
+	width: 100px
+	min-height: 100px
+	transition: .4s
+	border-radius: 200px
+	cursor: pointer
+	color: #333
+	overflow:hidden;
+	&:focus
+		// light: f5f5f5
+		background: black
+		color: white
+		border-radius: 0
+		width: calc(100% - 40vw)
+		
+.spinner
+	animation: spinner 1s infinite alternate-reverse
+	background: $bot
+	width: 10px
+	height: 10px
+	margin: 20px auto
+	border-radius: 10px;
+	&.hidden
+		animation: none
+		opacity: 0
+		
+.bot,.human
+	animation: appear-pop .4s
+	animation-fill-mode: forwards
+	padding: 15px
+	margin: 0 auto;
+	color: white
+.human
+	background: $human
+	& + .bot, & + .bot--delay
+		margin-top: 20px 
+.bot
+	background: $bot
+	animation-delay: .4s
+	opacity: 0
+	& + .human
+		margin-top: 20px
+		
+.bot--delay
+	@extend .bot
+	animation-delay:1.2s
+
+.conversation	
+	margin: 0 20vw
+	
+.special-message
+	border-bottom: 5px solid $bot
+	background: lighten($bot, 80%)
+	color: $bot
+	animation-name: appear-slideDown
+	a
+		color: $bot
+		text-decoration: underline
+
+.linklist
+	@extend .special-message
+
+.all-projects
+	position: fixed;
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100%
+	background: #FFF
+	font-size: 35px
+	padding: 100px
+	color: #CCC
+	overflow: scroll
+	animation-delay: 1.2s
+	.all-projects--close
+		position: absolute
+		top: 25px
+		right: 25px
+		cursor: pointer
+		transition: .4s
+		&:before
+			content: 'Return to conversation'
+			color: #CCC
+			opacity: 0
+			margin-right: 0
+			transition: .4s
+			
+		&:hover
+			color: black
+			&:before
+				color: #CCC
+				opacity: 1
+				margin-right: 25px
+			
+	a
+		color: $bot
+		text-decoration: underline
+		transition: .4s
+		&:hover
+			opacity:.8
+
+.numerical
+	@extend .special-message
+	font-size: 35px
+	// text-align: right
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	img 
+		width: 50%
+	form
+		width: 100%
+		margin: 30px 0 0 0
+		text-align: left
+	textarea
+		width: 100%
+		border: none
+		outline: none
+		resize: vertical
+		padding: 25px
+		font-size: 25px
+		margin-bottom:0
+	button
+		background: white
+		width 100%
+		margin-top: 0
+		background: none;
+		width: 100%;
+		border: none;
+		outline: none;
+		text-decoration: underline;
+		text-align: right;
+		transition: .4s background
+		&:focus
+			background: rgba(white,.5)
+	.longtext
+		font-size: 20px
+	
+@keyframes spinner
+	from {opacity:0}
+	to {opacity:1}
+
+@keyframes appear-pop
+	from { opacity:0; border-radius: 100px; transform: translateY(10px) scale(.8); overflow: hidden; }
+	to {opacity: 1; border-radius: 0px; transform: translateY(0px) scale(1) }
+
+@keyframes appear-slide 
+	from { opacity:0; transform: translateY(10px)}
+	to {opacity: 1; transform: translateY(0px)}
+
+@keyframes appear-slideDown 
+	from { opacity:0; transform: translateY(-10px)}
+	to {opacity: 1; transform: translateY(0px)}
+
+@keyframes hint
+	from { opacity:1; transform: translateY(-10px)}
+	to { opacity:.8; transform: translateY(0px)}
+	
+
+
+@media only screen and (min-width : 736px) and (max-width : 1024px)
+	.main
+		&.hidden
+			top: auto
+			bottom: 35px
+	.content--project
+		margin: 0
+		width: 100%
+		box-shadow: none
+		h1, .content--title
+			margin: -70px 0px -230px 9px
+			// font-size: 250px;
+		.content--container
+			margin: 50px
+			// display: flex
+			// flex-direction: column-reverse
+			.description,.images
+				width: 100%
+			// .description
+
+
+@media only screen and (min-width : 320px) and (max-width : 736px)
+	*
+		-webkit-touch-callout: none
+	body, html
+		min-height: 100%
+	.main
+		padding: 0
+		margin: 15px 0 0 0
+		&.hidden
+			top: auto
+			bottom: 30px
+		h1
+			padding: 20px
+		
+	.conversation
+		div:first-child
+			animation-delay:1s
+		width calc( 100% - 30px)
+		position: absolute
+		bottom:125px
+		margin: 0 15px
+		min-height: 100%
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		div
+			width: 100%
+		// div:last-child
+		// 	margin-bottom: 125px
+	.spinner
+		margin-bottom: 125px
+		border: 2px solid rgba(white,.7)
+		
+	.conversation--input
+		position:fixed
+		bottom: 15px
+		left: calc(50% - 50px)
+		margin: 0
+		// text-align: center
+		&:focus
+			left: 0
+			bottom: 0
+			width: 100%
+			
+	#talk
+		&:before
+			content: "type here"
+			position: fixed
+			bottom: 120px
+			width: 100%
+			left: 0
+			transition: .4s
+			animation-fill-mode: backwards;
+			animation: hint .4s 6 alternate-reverse
+			opacity: 0 !important
+			
+	.content--project
+		margin: 0
+		width: 100%
+		border: none
+		h1, .content--title
+			margin: 25px 0 0 0
+			width: 100%
+			height: 150px
+		.content--container
+			margin: 15px
+			display: flex
+			flex-direction: column-reverse
+			
+			font-size: 16px
+			background: rgba(black,.5)
+			color: white
+			.description,.images
+				padding: 15px
+				width: 100%
+			.description
+				padding-bottom: 125px
+				
+@media screen and (min-width : 1440px)
+	.conversation
+		margin: 0 30vw
+	.conversation--input
+		&:focus
+			width: calc(100% - 60vw)
+			
+			

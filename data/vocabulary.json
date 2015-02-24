@@ -1,0 +1,101 @@
+{
+"greeting":[
+	"How can I help you?",
+	"Nice to meet you, how can I help?",
+	"what can I do for you?",
+	"Hey there!"
+	],
+
+"thanks":[
+	"No problem!",
+	"You're welcome",
+	"Anytime! Seriously. I never sleep.",
+	":)"
+	],
+
+"sailor":[
+	"Dude! Do you want to apologize for that?",
+	"Seriously? You better apologize now",
+	"That hurt. Please apologize"
+	],
+
+"yes_sorry": [
+	"I'ts ok.",
+	"Alright. Let's move on then.",
+	"Ok. Remember to treat machines like you want to be treated."
+	],
+
+"no_sorry": [
+	"Ok then.",
+	"Have fun then.",
+	"You have been warned",
+	"♫"
+	],
+
+"help":[
+	"Just ask some questions or give commands, for example: <br> <i>&laquo;Show interaction design projects &raquo;</i>",
+	"You can ask questions about Gerhard and his work, like <i>&laquo;List interaction design projects&raquo;</i> — but also useful stuff like <i>&laquo;What is the golden ratio of 500&raquo;</i>",
+	"You can ask questions about Gerhard and his work, like <i>&laquo;What did he study&raquo;</i> — but also useful things like <i>&laquo;DIN a4 dimensions in cm&raquo;</i>",
+	"Simply ask some questions about Gerhard and his work. Or practical things like the weather or calculations."
+	],
+
+"projects":[
+	"Matches for: ${category}",
+	"Searching for ${category} projects... ",
+	"Here are ${category} projects: ",
+	"This is what I could find"
+	],
+
+"send_message":[
+	"Message sent!",
+	"Fwooosh!"
+	],
+
+"projects-search":[
+	"searching...",
+	"Let me take a look",
+	"One moment please"
+	],
+
+"projects-show":[
+	"here they are...",
+	"here you go",
+	"bam!"
+	],
+	
+"not-sure":[
+	"Sorry, but could you please rephrase that?",
+	"Que?",
+	"Sorry, I did not understand this. But I am constantly learning, so maybe next time.",
+	"I did not get that."
+	],
+
+"about_me":[
+	"Here you go:",
+	"Voilà:",
+	"There you are",
+	"Thats what I found",
+	"Thats what I could find",
+	"Here's what I was able to find",
+	"bam!"
+	],
+
+"compliment":[
+	":)",
+	"thanks :)",
+	"thank you",
+	"thats good to hear",
+	"oh wow, thanks!"
+],
+
+"unhappy":[
+	"yikes. sorry to hear that",
+	"sorry you feel that way",
+	"Aww. I tried my best!"
+	],
+
+"bye":[
+	"Ok, bye!",
+	"Bye, I guess."
+	]
+}

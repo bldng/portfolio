@@ -1,0 +1,21 @@
+---
+title: 'soils'
+date: 2013
+path: 'img/soils/'
+background: 'cover.png'
+images: 
+tags: ['interaction design', 'interaction', 'ixd', 'webgl', 'three.js', 'infographic', 'webdesign', 'frontend']
+---
+
+:markdown
+	Soils is an exploratory WebGL experiment that visualizes various datasets of two countries. The data is fetched from wordbank.org
+	and lets you compare the population distribution, access to clean drinking water, Internet availability and the role of mineral deposits in the countries GDP.
+
+	Soils displays various datasets on two separate three-dimensional bars which the user can rotate to compare two countries in an explorative way. The countries can be chosen through two input fields with advanced auto-complete functionality from the [Baymard Institute](http://baymard.com/labs/country-selector). It handles typos, multiple spelling sequences, synonyms and prioritization and therefore was preferred by me over a navigation through country outlines.
+	Once two countries are chosen, the data is fetched via an API Call
+	from [worldbank.org](http://www.worldbank.org) and is immediately represented on the two bars. On the top, skyscrapers represent the amount people living in an urban surrounding whereas the small houses represent the rural area.
+	On the front, the bright blue water represents the amount of the population with access to clean drinking water. So when the water is half dirty, only fifty percent have access to drinking water.
+	On the bottom, you can see the availability of Internet for the population.
+	On the backside, the amount of crystals represents the role of mineral deposits in the countries GDP. This means, it does not show how big the countries deposits are (which would be a bland information without knowledge of the countries size and the specific resource) but how much the country is dependent on trading with them compared to other branches of economy.
+	Additionally, there is an info Layer which primarily guides new users through the different aspects of the application. Once the countries have been chosen, more accurate data is added to this view and can be consulted as needed. 
+	It is built mainly with the WebGL library [three.js](http://threejs.org) and is rendered on the client side.

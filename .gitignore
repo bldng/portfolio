@@ -1,0 +1,4 @@
+.DS_Store
+node_modules
+portfolio/node_modules
+data/secrets.json
