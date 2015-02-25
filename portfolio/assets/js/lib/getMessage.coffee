@@ -80,7 +80,8 @@ module.exports = (message) ->
 			$( ".conversation" ).append say( data.reply, 'bot')
 			chanceToApologize = () ->
 				global.context = ''
-			setTimeout(chanceToApologize, 15000)
+				console.log 'too late'
+			setTimeout(chanceToApologize, 25000)
 
 		else if data.intent == 'no_send'
 			global.context = ''
