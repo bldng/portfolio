@@ -108,9 +108,9 @@ app.get '/api', (req, res) ->
 				)
 			.catch(console.error)
 
-app.post '/api2', (req, res) ->
-	content = req.query.message
-
+app.post '/message', (req, res) ->
+	content= req.body.message
+	console.log content
 	client.sendMessage {
 		to: '+41793914458'
 		from: '+14804850583'
@@ -118,11 +118,11 @@ app.post '/api2', (req, res) ->
 	}, (err, responseData) ->
 		if err
 			console.log err
+			res.send 'seems like this went bad...'
 		else
 			# console.log responseData.from
-			console.log responseData.body
-			res.send 'message sent.'
-			# res.json responseData
+			console.log 'sent': responseData.body
+			res.send 'seems like this went well...'
 
 
 pickSentence = (key, category) ->

@@ -86,7 +86,9 @@ $( '.conversation' ).on 'submit', '#contactForm',  (event) ->
 			$('#contactForm').remove()
 			$('.temporary').remove() if $('.temporary')
 			$( ".conversation" ).append '<div class="bot">Fwoosh!</div>'
-			$.post( "/api2", { message: messageToSend } )
+			$.post( "/message", { message: messageToSend }, (data)->
+				console.log data
+				)
 			global.context = ''
 		else
 			global.context = 'send_message'
@@ -102,7 +104,9 @@ $( '.conversation' ).on 'submit', '#feedbackForm',  (event) ->
 		console.log 'sent feedback:' + messageToSend
 		$('.feedbackform').remove()
 		global.context = ''
-		$.post( "/api2", { body: messageToSend } )
+		$.post( "/message", { message: messageToSend }, (data)->
+			console.log data
+			)
 		$( ".conversation" ).append '<div class="bot">I will forward it immediately! Thank you :)</div>'
 	else
 		$( ".feedback--textarea" ).val('')
