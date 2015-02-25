@@ -55,7 +55,7 @@ feedback = '<form method="" id="feedbackForm"><textarea autofocus placeholder=""
 
 about_me = [
   {
-    answer: '185cm Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quaerat voluptate veniam optio, vero tempora placeat vel aspernatur vitae consequuntur modi aperiam! Sint nesciunt beatae fuga ipsum tempore, dolore aliquid. Magni velit voluptates id hic, distinctio culpa! Debitis sit harum illo, consequuntur error explicabo quod vitae omnis ipsa quis impedit similique labore.',
+    answer: '185cm',
     tags: ['height', 'tall']
   }, {
     answer: 'Zurich, Switzerland',
@@ -67,7 +67,7 @@ about_me = [
     answer: 'Road Cycling & Cyclocross <br/> Programming <br/> Thinking about the future of design',
     tags: ['hobbies']
   }, {
-    answer: '<img src="http://cl.ly/image/1p1S1a110z1Y/portrait.png"/>',
+    answer: '<img src="img/misc/portrait.png"/>',
     tags: ['look']
   }, {
     answer: calcAge(1985),
@@ -76,13 +76,13 @@ about_me = [
     answer: '18.12.1985',
     tags: ['birthyear']
   }, {
-    answer: '<a href="http://cl.ly/081P0u0m1x2U/cv_web_2015.pdf" target="_blank"><img src="http://cl.ly/image/020I2T0A090J/oeOPL7tU7cJ2DXgOCuJYOibufj1yNQFfZojs5eGaPzc.png"/><br>Download</a>',
+    answer: '<a href="img/misc/cv_web_2015.pdf" target="_blank"><img src="http://cl.ly/image/020I2T0A090J/oeOPL7tU7cJ2DXgOCuJYOibufj1yNQFfZojs5eGaPzc.png"/><br>Download</a>',
     tags: ['cv']
   }, {
     answer: '<div class="longtext"><h3>Work Experience</h3><p><strong>SVS/BirdLife nature conservation centre Neeracherried</strong><br>2014<br>Planning and implementing the redesign for the interactive permanent exhibition.</p><p><strong>Product Management Intern Leica Camera AG</strong><br>Summer 2013<br>Involved with various existing and self initiated projects in the field of innovation and workflows.</p><p><strong>Spocal GmbH</strong><br>January 2012 – September 2013<br>Lead Designer at a Zurich startup. Responsible for UX / UI and branding of the student platform Spocal as well as the corporate-oriented product Beekeeper.</p><p><strong>Freelance web and graphic design</strong><br>Since 2006<br>mainly in the area of individuals and medium-sized companies.</p></div>',
     tags: ['references', 'work experience']
   }, {
-    answer: 'Kim & Key <3 <br> <img src="http://cl.ly/image/1h1R2U0R3L1y/Screenshot%202015-02-24%2013.23.36.png"/>',
+    answer: 'Kim & Key <3 <br> <img src="img/misc/cats.png"/>',
     tags: ['cats']
   }, {
     answer: 'You can find it here: <a href="/blog" target="_blank">Blog</a>',

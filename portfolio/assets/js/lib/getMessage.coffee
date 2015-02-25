@@ -13,16 +13,16 @@ contact = '<form method="" id="contactForm">or you can send him a quick message:
 feedback = '<form method="" id="feedbackForm"><textarea autofocus placeholder="" class="feedback--textarea"></textarea><button type="submit">send</button><input type="hidden" name="submitValue" value="false"/></form>'
 
 about_me = [
-	{answer: '185cm Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex quaerat voluptate veniam optio, vero tempora placeat vel aspernatur vitae consequuntur modi aperiam! Sint nesciunt beatae fuga ipsum tempore, dolore aliquid. Magni velit voluptates id hic, distinctio culpa! Debitis sit harum illo, consequuntur error explicabo quod vitae omnis ipsa quis impedit similique labore.', tags: ['height', 'tall']},
+	{answer: '185cm', tags: ['height', 'tall']},
 	{answer: 'Zurich, Switzerland', tags: ['location', 'city']},
 	{answer: 'Giessen, Germany', tags: ['from']},
 	{answer: 'Road Cycling & Cyclocross <br/> Programming <br/> Thinking about the future of design', tags: ['hobbies']},
-	{answer: '<img src="http://cl.ly/image/1p1S1a110z1Y/portrait.png"/>', tags: ['look']},
+	{answer: '<img src="img/misc/portrait.png"/>', tags: ['look']},
 	{answer: calcAge(1985), tags: ['age', 'old']},
 	{answer: '18.12.1985', tags: ['birthyear']},
-	{answer: '<a href="http://cl.ly/081P0u0m1x2U/cv_web_2015.pdf" target="_blank"><img src="http://cl.ly/image/020I2T0A090J/oeOPL7tU7cJ2DXgOCuJYOibufj1yNQFfZojs5eGaPzc.png"/><br>Download</a>', tags: ['cv']},
+	{answer: '<a href="img/misc/cv_web_2015.pdf" target="_blank"><img src="http://cl.ly/image/020I2T0A090J/oeOPL7tU7cJ2DXgOCuJYOibufj1yNQFfZojs5eGaPzc.png"/><br>Download</a>', tags: ['cv']},
 	{answer: '<div class="longtext"><h3>Work Experience</h3><p><strong>SVS/BirdLife nature conservation centre Neeracherried</strong><br>2014<br>Planning and implementing the redesign for the interactive permanent exhibition.</p><p><strong>Product Management Intern Leica Camera AG</strong><br>Summer 2013<br>Involved with various existing and self initiated projects in the field of innovation and workflows.</p><p><strong>Spocal GmbH</strong><br>January 2012 – September 2013<br>Lead Designer at a Zurich startup. Responsible for UX / UI and branding of the student platform Spocal as well as the corporate-oriented product Beekeeper.</p><p><strong>Freelance web and graphic design</strong><br>Since 2006<br>mainly in the area of individuals and medium-sized companies.</p></div>', tags: ['references', 'work experience']},
-	{answer: 'Kim & Key <3 <br> <img src="http://cl.ly/image/1h1R2U0R3L1y/Screenshot%202015-02-24%2013.23.36.png"/>', tags: ['cats']},
+	{answer: 'Kim & Key <3 <br> <img src="img/misc/cats.png"/>', tags: ['cats']},
 	{answer: 'You can find it here: <a href="/blog" target="_blank">Blog</a>', tags: ['blog']},
 	{answer: 'Via Email: <a href="mailto:hello@gerhardbliedung.com">hello@gerhardbliedung.com</a>'+contact, tags: ['contact']},
 	{answer: '<div class="longtext"><p><strong>Languages</strong></p><p>Human – Human</p><ul><li>German ( mother Tongue )</li><li>English ( fluent in speech and writing )</li></ul><p>Human – Machine</p><ul><li>Javascript ( Node.js, jQuery, three.js, Angular, babel )</li><li>browserify / webpack</li><li>build tools</li><li>templating</li><li>css preprocessors</li><li>Java, C++ ( Processing, Arduino)</li></ul><p><strong>Skills</strong></p><p>Software</p><ul><li>Adobe CC Suite ( Ps, Ai, In, Ae )</li><li>Sketch</li><li>Git</li><li>Cinema 4d &amp; blender</li></ul><p>Additional Skills</p><ul><li>Digital and analog illustrations</li><li>Physical Prototyping</li><li>Robotics ( Dynamixel / Arduino )</li><li>Calligraphy</li></ul></div>', tags: ['skills']},
