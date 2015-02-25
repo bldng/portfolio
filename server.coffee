@@ -5,6 +5,8 @@ rp         = require 'request-promise'
 vocabulary = require './data/vocabulary.json'
 Client     = require 'node-wolfram'
 sentiment  = require 'sentiment'
+bodyParser = require 'body-parser'
+
 
 sentiment_options = {'no':0, 'never': 0, 'hell': 0, 'fuck': -.5, 'sucks': 0, 'fucking': 0, 'sorry': 1, 'apologise': 1, 'apologised': 1, 'apologises': 1, 'apologising': 1, 'apologize': 1, 'apologized': 1, 'apologizes': 1, 'apologizing': 1, 'apology': 1}
 
@@ -20,7 +22,9 @@ app = express()
 app.use require('cors')()
 # app.use express.compress()
 app.use(favicon(__dirname + '/portfolio/public/favicon.ico'))
-app.use(express.static(__dirname + '/portfolio/public'));
+app.use(express.static(__dirname + '/portfolio/public'))
+app.use( bodyParser.json() )
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.get '/', (req, res) ->
 	res.sendfile __dirname + '/portfolio/public'
@@ -105,7 +109,8 @@ app.get '/api', (req, res) ->
 			.catch(console.error)
 
 app.post '/api2', (req, res) ->
-	content = req.query.body
+	content = req.query.message
+
 	client.sendMessage {
 		to: '+41793914458'
 		from: '+14804850583'
@@ -114,9 +119,10 @@ app.post '/api2', (req, res) ->
 		if err
 			console.log err
 		else
-			console.log responseData.from
+			# console.log responseData.from
 			console.log responseData.body
-			res.json responseData
+			res.send 'message sent.'
+			# res.json responseData
 
 
 pickSentence = (key, category) ->
