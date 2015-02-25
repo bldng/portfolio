@@ -6,7 +6,7 @@ textFit   = require './vendor/textFit.min.js'
 itemslide = require './vendor/itemslide.min.js'
 
 global.context = ''
-askAfter = 30
+askAfter = 15
 
 isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
