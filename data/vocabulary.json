@@ -3,7 +3,7 @@
 	"How can I help you?",
 	"Nice to meet you, how can I help?",
 	"what can I do for you?",
-	"Hey there!"
+	"Hey there! How can I help?"
 	],
 
 "thanks":[
@@ -50,6 +50,12 @@
 	"Message sent!",
 	"Fwooosh!"
 	],
+
+"who_are_you":[
+	"I am the portfolio of Gerhard Bliedung. Which is kind of weird, but that's the way it is.",
+	"I am a portfolio. I guess.",
+	"Oh I'm just working here. But I would be happy to tell you more about Gerhard."
+	],	
 
 "projects-search":[
 	"searching...",
