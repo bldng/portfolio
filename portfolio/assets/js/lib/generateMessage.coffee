@@ -3,7 +3,8 @@ module.exports = (message, sender, type) ->
 		console.log 'received: '+message.length
 		messageString = ''
 		for item in message
-			messageString += '<li><a href=#'+item.title+'>' +item.title+'</a></li>'
+			tag = if item.tag then item.tag else ''
+			messageString += '<li><a href=#'+item.title+'>' +item.title+'</a> <span>' + tag + '</span></li>'
 		messageToDisplay = '<div class="'+sender+" "+type+'">'+messageString+'</div>'
 
 	else if type == 'numerical'

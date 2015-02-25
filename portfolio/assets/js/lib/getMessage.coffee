@@ -38,13 +38,32 @@ module.exports = (message) ->
 
 	api_reply = $.getJSON url, (data) ->
 		if data.intent == 'projects'
+			category = data.category.toLowerCase()
 			filteredProjects = []
-			filteredProjects = projects.filter( (item) ->
-				if item.tags.indexOf( data.category.toLowerCase() ) > -1
-					return item.title
-				)
-			$( ".conversation" ).append say( data.reply, 'bot' )
-			$( ".conversation" ).append say( filteredProjects, 'bot--delay', 'linklist' )
+
+			if category == 'all'
+				for item in projects
+					filteredProjects.push({title: item.title, tag: item.tags[0]})
+				$( ".conversation" ).append say( 'These are all I could find:', 'bot')
+				$( ".conversation" ).append say( filteredProjects , 'bot--delay', 'linklist' )
+
+			else if category == 'random'
+				random = Math.floor(Math.random() * projects.length + 0)
+				filteredProjects.push({title: projects[random].title, tag: projects[random].tags[0]})
+				$( ".conversation" ).append say( 'Here is a random project:', 'bot')
+				$( ".conversation" ).append say( filteredProjects , 'bot--delay', 'linklist' )
+
+			else
+				filteredProjects = projects.filter( (item) ->
+					if item.tags.indexOf( category ) > -1
+						filteredProjects.push item.title
+					)
+				console.log filteredProjects
+				if filteredProjects.length > 0
+					$( ".conversation" ).append say( data.reply, 'bot' )
+					$( ".conversation" ).append say( filteredProjects, 'bot--delay', 'linklist' )
+				else 
+					$( ".conversation" ).append say( 'Sorry, there was no match for '+ category, 'bot' )
 
 		else if data.intent == 'about_me'
 			filteredInfo = []

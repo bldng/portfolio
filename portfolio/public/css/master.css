@@ -548,6 +548,9 @@ hr {
   color: #39cccc;
   text-decoration: underline;
 }
+.linklist span {
+  opacity: 0.6;
+}
 .all-projects {
   position: fixed;
   top: 0;
@@ -909,3 +912,5 @@ hr {
     transform: translateY(0px);
   }
 }
+
+ /*# sourceMappingURL=master.css.map */
