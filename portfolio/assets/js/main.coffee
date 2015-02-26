@@ -7,6 +7,7 @@ itemslide = require './vendor/itemslide.min.js'
 
 global.context = ''
 askAfter = 20
+projectVisible = false
 
 isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
@@ -17,7 +18,7 @@ page '/', (ctx)->
 		return item.title == hash
 	)
 	if props.length > 0
-		$(document).scrollTop(0)
+		projectVisible = true
 		$('.content').html templates['project']({'props': props[0]})
 		# $('.content').fadeIn()
 		# $('.content').removeClass 'hidden'
@@ -26,10 +27,12 @@ page '/', (ctx)->
 		fitHeader = () ->
 			textFit $('.content--title') , {minFontSize:10, maxFontSize: 800, alignHoriz: true, reProcess: true}
 		setTimeout(fitHeader, 100)
+		$(document).scrollTop(0)
+
 
 	else
+		projectVisible = false
 		# $('.content').fadeOut()
-		$(document).scrollTop( $(document).height() )
 		# $('.content').addClass 'hidden'
 		$('.content').html('')
 		$('.main').removeClass 'hidden video'
@@ -37,6 +40,9 @@ page '/', (ctx)->
 			tellError = () ->
 				$( ".conversation" ).append "<div class='bot'>Well, this is awkward. I can't find the page you wanted :(</div>"
 			setTimeout(tellError, 4000)
+		focus = () ->
+			$('.conversation--input').focus()
+		setTimeout(focus, 2500)
 		# console.log('/');
 page()
 
@@ -68,7 +74,7 @@ $( "#talk" ).on 'submit', ( event ) ->
 			global.context = 'ask_feedback'
 			askFeedback = () ->
 				$( ".conversation" ).append '<div class="bot--delay">Could you do me a small favor?</div>'
-			setTimeout(askFeedback, 1500)
+			setTimeout(askFeedback, 2000)
 
 
 
@@ -122,6 +128,15 @@ $('.conversation').on 'click', '.all-projects--close',  () ->
 	$(this).remove()
 	$('.all-projects h3, .all-projects h4').remove()
 	$('.all-projects').removeClass('all-projects').addClass('linklist')
+	$('.conversation--input').focus()
+
+$('.conversation--input').on 'focus', () ->
+	scrollToBottom()
+
+$('.main').on 'click', '.conversation--input', () ->
+	if $('.all-projects')
+		$('.all-projects').removeClass('all-projects').addClass('linklist')
+		$('.conversation--input').focus()
 
 
 # Start conversation
@@ -132,8 +147,8 @@ greet = () ->
     else
     	$('.conversation').append '<div class="bot">Hey!</div>'
 
-    $('.conversation--input').focus() if !isMobile
-setTimeout(greet, 2000)
+    # $('.conversation--input').focus() if !isMobile
+setTimeout(greet, 1600)
 
 $("video").bind "play", () ->
 	vid = setInterval ->
@@ -143,3 +158,11 @@ $("video").bind "play", () ->
 			$('.main.hidden').removeClass 'video'
 			clearInterval(vid)
 	, 1000
+
+$('.conversation').bind "DOMSubtreeModified", () ->
+	# $(document).scrollTop( $(document).height() )
+	scrollToBottom()
+
+scrollToBottom = () ->
+	if !projectVisible
+		$('html, body').animate({scrollTop: $(document).height() }, 800)

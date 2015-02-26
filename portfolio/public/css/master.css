@@ -290,7 +290,7 @@ html {
   font-size: 162.5%;
 }
 body {
-  font-family: "futura-pt", "Futura PT", sans-serif;
+  font-family: "futura-pt", "Futura PT", "Futura", "Verdana", sans-serif;
   color: #555;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -313,12 +313,23 @@ html {
 }
 body {
   padding: 50px;
-  transition: 0.4s background;
+  transition: 0.4s;
+  transition-property: background, color;
+}
+body.howdoyulikethat {
+  font-family: "Comic Sans MS" !important;
+  color: #ffdc00 !important;
+  background: #b10dc9 !important;
+}
+a {
+  overflow-wrap: break-word;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 .main {
   padding: 50px;
   position: absolute;
-  background: #fff;
+  background: transparent;
   top: 0;
   left: 0;
   bottom: 0;
@@ -359,11 +370,6 @@ body {
 }
 .main.video {
   opacity: 0;
-}
-.main.howdoyulikethat {
-  font-family: "Comic Sans MS" !important;
-  color: #ffdc00 !important;
-  background: #b10dc9 !important;
 }
 .content--project {
   left: 0;
@@ -493,8 +499,42 @@ hr {
   border: none;
   border-top: 1px solid rgba(102,102,102,0.5);
 }
-.conversation--input {
-  margin: 100px 20vw 0 20vw;
+.conversation {
+  margin: 0 20vw;
+  padding-bottom: 240px;
+  min-height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -o-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.conversation div {
+  width: 100%;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+.talk-container {
+  position: fixed;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 100px;
+  pointer-events: none;
+}
+.talk-container .conversation--input {
+  pointer-events: all;
   outline: none;
   border: none;
   background: #333;
@@ -507,11 +547,11 @@ hr {
   color: #333;
   overflow: hidden;
 }
-.conversation--input:focus {
+.talk-container .conversation--input:focus {
   background: #222;
   color: #fff;
   border-radius: 0;
-  width: calc(100% - 40vw);
+  width: calc(100% - 50vw);
 }
 .spinner {
   -webkit-animation: spinner 1s infinite alternate-reverse;
@@ -520,7 +560,7 @@ hr {
   background: #39cccc;
   width: 10px;
   height: 10px;
-  margin: 20px auto;
+  margin: 0 auto 15px;
   border-radius: 10px;
 }
 .spinner.hidden {
@@ -566,9 +606,6 @@ hr {
   -ms-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
-.conversation {
-  margin: 0 20vw;
-}
 .special-message,
 .linklist,
 .numerical {
@@ -595,35 +632,40 @@ hr {
   width: 100vw;
   height: 100%;
   background: #fff;
-  font-size: 35px;
-  padding: 100px;
-  color: #ccc;
+  font-size: 32px;
+  padding: 75px;
+  color: #fa8072;
   overflow: scroll;
   -webkit-animation-delay: 1.2s;
   -ms-animation-delay: 1.2s;
   animation-delay: 1.2s;
+  transition: none;
+  background: #ffffbc;
+  -webkit-animation-duration: 0;
+  -ms-animation-duration: 0;
+  animation-duration: 0;
+  font-weight: bold;
 }
-.all-projects .all-projects--close {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  cursor: pointer;
-  transition: 0.4s;
+.all-projects h3 {
+  margin-top: 0;
 }
-.all-projects .all-projects--close:before {
-  content: 'Return to conversation';
-  color: #ccc;
-  opacity: 0;
-  margin-right: 0;
-  transition: 0.4s;
+.all-projects .all-projects--list {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
 }
-.all-projects .all-projects--close:hover {
-  color: #222;
+.all-projects .all-projects--list span {
+  display: block;
 }
-.all-projects .all-projects--close:hover:before {
-  color: #ccc;
-  opacity: 1;
-  margin-right: 25px;
+.all-projects hr {
+  border: none;
+  border-top: 5px solid #fa8072;
+}
+.all-projects li {
+  margin: 0 0 20px;
 }
 .all-projects a {
   color: #39cccc;
@@ -696,6 +738,14 @@ hr {
   .content--project .content--container .images {
     width: 100%;
   }
+  .all-projects--list {
+    -webkit-column-count: 2 !important;
+    -moz-column-count: 2 !important;
+    column-count: 2 !important;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 736px) {
   * {
@@ -718,45 +768,26 @@ hr {
   }
   .conversation {
     width: calc(100% - 30px);
-    position: absolute;
-    bottom: 125px;
-    margin: 0 15px;
-    min-height: 100%;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: box;
-    display: flex;
-    -o-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -o-box-pack: end;
-    -ms-flex-pack: end;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
   }
   .conversation div:first-child {
     -webkit-animation-delay: 1s;
     -ms-animation-delay: 1s;
     animation-delay: 1s;
   }
-  .conversation div {
-    width: 100%;
+  .talk-container {
+    padding-bottom: 0;
   }
-  .spinner {
-    margin-bottom: 125px;
-    border: 2px solid rgba(255,255,255,0.7);
+  .conversation {
+    padding-bottom: 150px;
+    width: calc(100% - 30px);
+    margin: 0 15px;
   }
   .conversation--input {
-    position: fixed;
-    bottom: 15px;
-    left: calc(50% - 50px);
-    margin: 0;
+    margin-bottom: 15px;
   }
   .conversation--input:focus {
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    margin-bottom: 0px;
+    width: 100% !important;
   }
   #talk:before {
     content: "type here";
@@ -777,6 +808,9 @@ hr {
     margin: 0;
     width: 100%;
     border: none;
+  }
+  .content--project .hero {
+    padding: 0 0 150px 0 !important;
   }
   .content--project h1,
   .content--project .content--title {
@@ -807,16 +841,31 @@ hr {
   .content--project .content--container .description {
     padding-bottom: 125px;
   }
+  .content--project .image-gallery {
+    background: none !important;
+  }
   .content--project .image-gallery img {
     width: 100% !important;
+    padding: 10px 0 !important;
+  }
+  .all-projects {
+    padding: 15px 15px 100px 15px;
+  }
+  .all-projects .all-projects--list {
+    -webkit-column-count: 1 !important;
+    -moz-column-count: 1 !important;
+    column-count: 1 !important;
   }
 }
 @media screen and (min-width: 1440px) {
   .conversation {
-    margin: 0 30vw;
+    margin: 0px 25vw;
   }
-  .conversation--input:focus {
-    width: calc(100% - 60vw);
+  .talk-container {
+    padding: 0px calc(25vw + 50px) inherit;
+  }
+  .talk-container .conversation--input:focus {
+    width: 100%;
   }
   .content--container .description.longtext {
     display: block;
@@ -965,5 +1014,3 @@ hr {
     transform: translateY(0px);
   }
 }
-
- /*# sourceMappingURL=master.css.map */

@@ -8,7 +8,7 @@ sentiment  = require 'sentiment'
 bodyParser = require 'body-parser'
 
 
-sentiment_options = {'no':0, 'never': 0, 'hell': 0, 'fuck': -.5, 'sucks': 0, 'hurt': 0, 'fucking': 0, 'sorry': 1, 'apologise': 1, 'apologised': 1, 'apologises': 1, 'apologising': 1, 'apologize': 1, 'apologized': 1, 'apologizes': 1, 'apologizing': 1, 'apology': 1}
+sentiment_options = {'no':0, 'stop':0, 'never': 0, 'hell': 0, 'fuck': -.5, 'sucks': 0, 'hurt': 0, 'fucking': 0, 'sorry': 1, 'apologise': 1, 'apologised': 1, 'apologises': 1, 'apologising': 1, 'apologize': 1, 'apologized': 1, 'apologizes': 1, 'apologizing': 1, 'apology': 1}
 
 # load you API keys here
 secret  = require './data/secrets.json'
@@ -33,7 +33,7 @@ app.get '/', (req, res) ->
 app.get '/api', (req, res) ->
 
 	# uri example with context
-	# api?body=yes&context={"state":"show_projects"}	
+	# api?body=yes&context={"state":"show_projects"}
 
 	message = req.query.body
 	ip = req.ip
@@ -53,7 +53,7 @@ app.get '/api', (req, res) ->
 		response.category = 'default'
 		response.reply = pickSentence 'sailor'
 
-		console.log ip + ' said: ' + message + ' (' + profanity + ')    ==> ' + response.intent
+		console.log 'req: ' + message + ' (' + profanity + ') ==> ' + response.intent
 		res.json response
 
 	else
@@ -66,7 +66,7 @@ app.get '/api', (req, res) ->
 				confidence = result.confidence
 				category   = if result.entities.category then result.entities.category[0].value else 'default'
 
-				console.log ip + ' said: ' + message + ' (' + profanity + ')    ==> ' + intent
+				console.log 'req: ' + message + ' (' + profanity + ') ==> ' + intent
 
 				result.category = category
 
@@ -102,9 +102,9 @@ app.get '/api', (req, res) ->
 				else
 					result.reply =  pickSentence('not-sure', category)
 					res.json result
-			
+
 				respond = ()->
-					res.json result				
+					res.json result
 				)
 			.catch(console.error)
 

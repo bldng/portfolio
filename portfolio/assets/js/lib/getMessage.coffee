@@ -63,7 +63,7 @@ module.exports = (message) ->
 				if filteredProjects.length > 0
 					$( ".conversation" ).append say( data.reply, 'bot' )
 					$( ".conversation" ).append say( filteredProjects, 'bot--delay', 'linklist' )
-				else 
+				else
 					$( ".conversation" ).append say( 'Sorry, there was no match for '+ category, 'bot' )
 
 		else if data.intent == 'about_me'
@@ -89,12 +89,12 @@ module.exports = (message) ->
 
 		else if data.intent == 'yes_sorry'
 			global.context = ''
-			$('.main').removeClass('howdoyulikethat')
+			$('body').removeClass('howdoyulikethat')
 			$('.rickroll').remove()
 			$( ".conversation" ).append say( data.reply, 'bot')
 
 		else if data.intent == 'no_sorry'
-			$('.main').addClass('howdoyulikethat')
+			$('body').addClass('howdoyulikethat')
 			# pointer-events: none on a video too mean?
 			$('.conversation').append '<div class="bot numerical rickroll"><iframe style="pointer-events:auto" width="100%" height="420" src="http://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0"></iframe></div>'
 			$( ".conversation" ).append say( data.reply, 'bot')
@@ -121,6 +121,7 @@ module.exports = (message) ->
 				allProjects.push({title: item.title, tag: item.tags[0]})
 			$( ".conversation" ).append say( data.reply, 'bot')
 			$( ".conversation" ).append say( allProjects , 'bot--delay', 'all-projects' )
+			$( ".conversation--input").blur()
 
 		else if data.intent == 'wolfram'
 			$( ".conversation" ).append say( 'Wolfram alpha says:', 'bot' )

@@ -24,12 +24,21 @@ body, html
 	overflow-x: hidden;
 body
 	padding: 50px
-	transition: .4s background
+	transition: .4s
+	transition-property: background, color
+	&.howdoyulikethat
+		font-family: "Comic Sans MS" !important
+		color: yellow !important
+		background: purple !important
+
+a
+	overflow-wrap: break-word;
+	text-overflow: ellipsis;
 
 .main
 	padding: 50px
 	position: absolute
-	background: white
+	background: transparent
 	top: 0
 	left: 0
 	bottom: 0
@@ -69,11 +78,6 @@ body
 			pointer-events:none
 	&.video
 		opacity: 0
-
-	&.howdoyulikethat
-		font-family: "Comic Sans MS" !important
-		color: yellow !important
-		background: purple !important
 
 // @-moz-document url-prefix()
 // 	.main.hidden
@@ -210,34 +214,74 @@ hr
 	border: none
 	border-top: 1px solid rgba(#666, .5)
 
-.conversation--input
-	margin: 100px 20vw 0 20vw
-	outline: none
-	border: none
-	// light: eaeaea
-	background: #333
-	padding: 25px
-	width: 100px
-	min-height: 100px
-	transition: .4s
-	border-radius: 200px
-	cursor: pointer
-	color: #333
-	overflow:hidden;
-	&:focus
-		// light: f5f5f5
-		background: black
-		color: white
-		border-radius: 0
-		width: calc(100% - 40vw)
+.conversation
+	// margin: 0 20vw
+	margin: 0 20vw
+	padding-bottom: 240px
+	min-height: 100%
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	div
+		width: 100%
+		flex: 0 0 auto
+
+.talk-container
+	position: fixed
+	left: 0
+	text-align: center
+	width: 100%
+	bottom: 0
+	padding-bottom: 100px
+	pointer-events: none
+		.conversation--input
+			pointer-events: all
+			outline: none
+			border: none
+			background: #333
+			padding: 25px
+			width: 100px
+			min-height: 100px
+			transition: 0.4s
+			border-radius: 200px
+			cursor: pointer
+			color: #333
+			overflow: hidden
+
+			&:focus
+				background: #222;
+				color: #FFF;
+				border-radius: 0;
+				width: calc(100% - 50vw);
+
+	// .conversation--input
+	// 	margin: 100px 20vw 0 20vw
+	// 	outline: none
+	// 	border: none
+	// 	// light: eaeaea
+	// 	background: #333
+	// 	padding: 25px
+	// 	width: 100px
+	// 	min-height: 100px
+	// 	transition: .4s
+	// 	border-radius: 200px
+	// 	cursor: pointer
+	// 	color: #333
+	// 	overflow:hidden;
+	// 	&:focus
+	// 		// light: f5f5f5
+	// 		background: black
+	// 		color: white
+	// 		border-radius: 0
+	// 		width: calc(100% - 40vw)
 
 .spinner
 	animation: spinner 1s infinite alternate-reverse
 	background: $bot
 	width: 10px
 	height: 10px
-	margin: 20px auto
-	border-radius: 10px;
+	margin: 0 auto 15px
+	border-radius: 10px
 	&.hidden
 		animation: none
 		opacity: 0
@@ -263,8 +307,6 @@ hr
 	@extend .bot
 	animation-delay:1.2s
 
-.conversation
-	margin: 0 20vw
 
 .special-message
 	border-bottom: 5px solid $bot
@@ -287,30 +329,31 @@ hr
 	width: 100vw
 	height: 100%
 	background: #FFF
-	font-size: 35px
-	padding: 100px
-	color: #CCC
+	font-size: 32px
+	padding: 75px
+	color: $color
 	overflow: scroll
 	animation-delay: 1.2s
-	.all-projects--close
-		position: absolute
-		top: 25px
-		right: 25px
-		cursor: pointer
-		transition: .4s
-		&:before
-			content: 'Return to conversation'
-			color: #CCC
-			opacity: 0
-			margin-right: 0
-			transition: .4s
+	transition: none
+	background: #FFFFBC
+	animation-duration: 0
+	font-weight: bold
 
-		&:hover
-			color: black
-			&:before
-				color: #CCC
-				opacity: 1
-				margin-right: 25px
+	h3
+		margin-top:0
+
+	.all-projects--list
+		column-count: 3
+		column-gap: 10px
+		span
+			display: block
+
+	hr
+		border: none
+		border-top: 5px solid $color
+
+	li
+		margin: 0 0 20px
 
 	a
 		color: $bot
@@ -398,6 +441,10 @@ hr
 				width: 100%
 			// .description
 
+	.all-projects--list
+		column-count: 2 !important
+		column-gap: 10px
+
 
 @media only screen and (min-width : 320px) and (max-width : 736px)
 	*
@@ -417,31 +464,39 @@ hr
 		div:first-child
 			animation-delay:1s
 		width calc( 100% - 30px)
-		position: absolute
-		bottom:125px
-		margin: 0 15px
-		min-height: 100%
-		display: flex
-		flex-direction: column
-		justify-content: flex-end
-		div
-			width: 100%
+		// position: absolute
+		// bottom:125px
+		// margin: 0 15px
+		// min-height: 100%
+		// display: flex
+		// flex-direction: column
+		// justify-content: flex-end
+		// div
+		// 	width: 100%
 		// div:last-child
 		// 	margin-bottom: 125px
-	.spinner
-		margin-bottom: 125px
-		border: 2px solid rgba(white,.7)
+
+	.talk-container
+		padding-bottom: 0
+
+	.conversation
+		padding-bottom: 150px
+		width: calc(100% - 30px)
+		margin: 0 15px
 
 	.conversation--input
-		position:fixed
-		bottom: 15px
-		left: calc(50% - 50px)
-		margin: 0
+		// width: calc( 100% - 30px)
+		// position:fixed
+		// bottom: 15px
+		// left: calc(50% - 50px)
+		// margin: 0
 		// text-align: center
+		margin-bottom: 15px
 		&:focus
-			left: 0
-			bottom: 0
-			width: 100%
+			// left: 0
+			// bottom: 0
+			margin-bottom: 0px
+			width: 100% !important
 
 	#talk
 		&:before
@@ -455,10 +510,13 @@ hr
 			animation: hint .4s 6 alternate-reverse
 			opacity: 0 !important
 
+
 	.content--project
 		margin: 0
 		width: 100%
 		border: none
+		.hero
+			padding: 0 0 150px 0 !important
 		h1, .content--title
 			margin: 25px 0 0 0
 			width: 100%
@@ -477,15 +535,31 @@ hr
 			.description
 				padding-bottom: 125px
 		.image-gallery
+			background: none !important
 			img
 				width: 100% !important
+				padding: 10px 0 !important
+
+
+	.all-projects
+		padding: 15px 15px 100px 15px
+
+		.all-projects--list
+			column-count: 1 !important
 
 @media screen and (min-width : 1440px)
+	// .conversation
+	// 	margin: 0 30vw
+	// .conversation--input
+	// 	&:focus
+	// 		width: calc(100% - 60vw)
 	.conversation
-		margin: 0 30vw
-	.conversation--input
-		&:focus
-			width: calc(100% - 60vw)
+		margin: 0px 25vw
+	.talk-container
+		padding: 0px calc(25vw + 50px) inherit
+		.conversation--input
+			&:focus
+				width: 100%
 
 	.content--container
 		.description.longtext
