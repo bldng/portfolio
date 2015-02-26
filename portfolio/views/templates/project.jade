@@ -6,6 +6,8 @@
 
 	//- .content--container(#{ if (props.background) style="background-image:url("+props.background+")"})
 	.content--container
+		if props.hero
+			.hero !{props.hero}
 		.description 
 			h2 Description
 			div !{props.content}
@@ -26,11 +28,22 @@
 			table
 				tr
 					th year
-					td= props.date
+					tr
+						td= props.date
 				if !props.background
 					tr
 						th background
-						td lorempixel.com
+						tr
+							td lorempixel.com
+
+				if props.meta
+					for item in props.meta
+						tr
+							each v, k in item
+								th= k
+								tr
+									td !{v}
+
 
 
 			hr

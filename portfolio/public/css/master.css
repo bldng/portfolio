@@ -357,6 +357,9 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+.main.video {
+  opacity: 0;
+}
 .main.howdoyulikethat {
   font-family: "Comic Sans MS" !important;
   color: #ffdc00 !important;
@@ -438,6 +441,13 @@ body {
 }
 .content--project .content--container .images img {
   width: 100%;
+  height: auto;
+}
+.content--project .content--container .hero {
+  width: 100%;
+  padding: 50px;
+}
+.content--project .content--container .hero .slider img {
   height: auto;
 }
 a {
@@ -607,10 +617,10 @@ hr {
 }
 .numerical form {
   width: 100%;
-  margin: 30px 0 0 0;
   text-align: left;
 }
 .numerical textarea {
+  margin-top: 10px;
   width: 100%;
   border: none;
   outline: none;
@@ -618,6 +628,7 @@ hr {
   padding: 25px;
   font-size: 25px;
   margin-bottom: 0;
+  min-height: 200px;
 }
 .numerical button {
   background: #fff;
@@ -912,5 +923,3 @@ hr {
     transform: translateY(0px);
   }
 }
-
- /*# sourceMappingURL=master.css.map */

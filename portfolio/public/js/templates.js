@@ -4,7 +4,12 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 ;var locals_for_with = (locals || {});(function (props, undefined) {
-buf.push("<div" + (jade.attr("style", (props.background ? "background-image: url("+props.path+props.background+")" : "background-image: url(http://lorempixel.com/400/500/abstract/)"), true, false)) + " class=\"content--project\"><div class=\"content--title\">" + (jade.escape(null == (jade_interp = props.title) ? "" : jade_interp)) + "</div><div class=\"content--container\"><div class=\"description\"> <h2>Description</h2><div>" + (((jade_interp = props.content) == null ? '' : jade_interp)) + "</div></div><div class=\"images\">");
+buf.push("<div" + (jade.attr("style", (props.background ? "background-image: url("+props.path+props.background+")" : "background-image: url(http://lorempixel.com/400/500/abstract/)"), true, false)) + " class=\"content--project\"><div class=\"content--title\">" + (jade.escape(null == (jade_interp = props.title) ? "" : jade_interp)) + "</div><div class=\"content--container\">");
+if ( props.hero)
+{
+buf.push("<div class=\"hero\">" + (((jade_interp = props.hero) == null ? '' : jade_interp)) + "</div>");
+}
+buf.push("<div class=\"description\"> <h2>Description</h2><div>" + (((jade_interp = props.content) == null ? '' : jade_interp)) + "</div></div><div class=\"images\">");
 if ( props.images)
 {
 if ( props.images.length === 1)
@@ -39,10 +44,81 @@ buf.push("<img" + (jade.attr("src", props.path+i, true, false)) + " alt=\"\"/>")
 buf.push("</div>");
 }
 }
-buf.push("<hr/><h2>Meta</h2><table><tr><th>year</th><td>" + (jade.escape(null == (jade_interp = props.date) ? "" : jade_interp)) + "</td></tr>");
+buf.push("<hr/><h2>Meta</h2><table><tr><th>year</th><tr><td>" + (jade.escape(null == (jade_interp = props.date) ? "" : jade_interp)) + "</td></tr></tr>");
 if ( !props.background)
 {
-buf.push("<tr><th>background</th><td>lorempixel.com</td></tr>");
+buf.push("<tr><th>background</th><tr><td>lorempixel.com</td></tr></tr>");
+}
+if ( props.meta)
+{
+// iterate props.meta
+;(function(){
+  var $$obj = props.meta;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var item = $$obj[$index];
+
+buf.push("<tr>");
+// iterate item
+;(function(){
+  var $$obj = item;
+  if ('number' == typeof $$obj.length) {
+
+    for (var k = 0, $$l = $$obj.length; k < $$l; k++) {
+      var v = $$obj[k];
+
+buf.push("<th>" + (jade.escape(null == (jade_interp = k) ? "" : jade_interp)) + "</th><tr><td>" + (((jade_interp = v) == null ? '' : jade_interp)) + "</td></tr>");
+    }
+
+  } else {
+    var $$l = 0;
+    for (var k in $$obj) {
+      $$l++;      var v = $$obj[k];
+
+buf.push("<th>" + (jade.escape(null == (jade_interp = k) ? "" : jade_interp)) + "</th><tr><td>" + (((jade_interp = v) == null ? '' : jade_interp)) + "</td></tr>");
+    }
+
+  }
+}).call(this);
+
+buf.push("</tr>");
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var item = $$obj[$index];
+
+buf.push("<tr>");
+// iterate item
+;(function(){
+  var $$obj = item;
+  if ('number' == typeof $$obj.length) {
+
+    for (var k = 0, $$l = $$obj.length; k < $$l; k++) {
+      var v = $$obj[k];
+
+buf.push("<th>" + (jade.escape(null == (jade_interp = k) ? "" : jade_interp)) + "</th><tr><td>" + (((jade_interp = v) == null ? '' : jade_interp)) + "</td></tr>");
+    }
+
+  } else {
+    var $$l = 0;
+    for (var k in $$obj) {
+      $$l++;      var v = $$obj[k];
+
+buf.push("<th>" + (jade.escape(null == (jade_interp = k) ? "" : jade_interp)) + "</th><tr><td>" + (((jade_interp = v) == null ? '' : jade_interp)) + "</td></tr>");
+    }
+
+  }
+}).call(this);
+
+buf.push("</tr>");
+    }
+
+  }
+}).call(this);
+
 }
 buf.push("</table><hr/></div></div></div>");}.call(this,"props" in locals_for_with?locals_for_with.props:typeof props!=="undefined"?props:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 }};

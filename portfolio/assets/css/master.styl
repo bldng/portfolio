@@ -67,6 +67,8 @@ body
 			transition: .4s
 			opacity: 0
 			pointer-events:none
+	&.video
+		opacity: 0
 			
 	&.howdoyulikethat
 		font-family: "Comic Sans MS" !important
@@ -162,6 +164,11 @@ body
 			vertical-align:top
 			img
 				width: 100%
+				height: auto
+		.hero
+			width: 100%
+			padding: 50px
+			.slider img
 				height: auto
 a
 	color: #eee
@@ -298,9 +305,9 @@ hr
 		width: 50%
 	form
 		width: 100%
-		margin: 30px 0 0 0
 		text-align: left
 	textarea
+		margin-top: 10px
 		width: 100%
 		border: none
 		outline: none
@@ -308,6 +315,7 @@ hr
 		padding: 25px
 		font-size: 25px
 		margin-bottom:0
+		min-height: 200px
 	button
 		background: white
 		width 100%

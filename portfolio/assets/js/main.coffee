@@ -6,7 +6,7 @@ textFit   = require './vendor/textFit.min.js'
 itemslide = require './vendor/itemslide.min.js'
 
 global.context = ''
-askAfter = 15
+askAfter = 20
 
 isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
@@ -32,7 +32,7 @@ page '/', (ctx)->
 		$(document).scrollTop( $(document).height() )
 		# $('.content').addClass 'hidden'
 		$('.content').html('')
-		$('.main').removeClass 'hidden'
+		$('.main').removeClass 'hidden video'
 		if hash.length > 0
 			tellError = () ->
 				$( ".conversation" ).append "<div class='bot'>Well, this is awkward. I can't find the page you wanted :(</div>"
@@ -134,3 +134,12 @@ greet = () ->
 
     $('.conversation--input').focus() if !isMobile
 setTimeout(greet, 2000)
+
+$("video").bind "play", () ->
+	vid = setInterval ->
+		if !$("video").get(0).paused
+			$('.main.hidden').addClass 'video'
+		else
+			$('.main.hidden').removeClass 'video'
+			clearInterval(vid)
+	, 1000

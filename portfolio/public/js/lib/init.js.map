@@ -1,1 +1,0 @@
-{"version":3,"file":"init.js","sourceRoot":"","sources":["/Users/itz/Desktop/portfolio-foo/roots/portfolio/assets/js/lib/init.coffee"],"names":[],"mappings":"AAAA;AAAA,EAAA,MAAM,CAAC,OAAP,GAAiB,SAAC,CAAD,GAAA;AAChB,WAAO,CAAA,GAAE,EAAT,CADgB;EAAA,CAAjB,CAAA;AAAA","sourcesContent":["module.exports = (n) ->\n\treturn n*20\n"]}
