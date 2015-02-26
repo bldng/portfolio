@@ -26,7 +26,7 @@ page '/', (ctx)->
 		fitHeader = () ->
 			textFit $('.content--title') , {minFontSize:10, maxFontSize: 800, alignHoriz: true, reProcess: true}
 		setTimeout(fitHeader, 100)
-		
+
 	else
 		# $('.content').fadeOut()
 		$(document).scrollTop( $(document).height() )
@@ -71,7 +71,7 @@ $( "#talk" ).on 'submit', ( event ) ->
 			setTimeout(askFeedback, 1500)
 
 
-		
+
 
 $( '.conversation' ).on 'submit', '#contactForm',  (event) ->
 	event.preventDefault()

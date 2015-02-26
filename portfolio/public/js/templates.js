@@ -9,7 +9,7 @@ if ( props.hero)
 {
 buf.push("<div class=\"hero\">" + (((jade_interp = props.hero) == null ? '' : jade_interp)) + "</div>");
 }
-buf.push("<div class=\"description\"> <h2>Description</h2><div>" + (((jade_interp = props.content) == null ? '' : jade_interp)) + "</div></div><div class=\"images\">");
+buf.push("<div" + (jade.cls(['description',props.longtext ? "longtext" : ""], [null,true])) + "><h2>" + (jade.escape(null == (jade_interp = props.subtitle || 'Description') ? "" : jade_interp)) + "</h2><div>" + (((jade_interp = props.content) == null ? '' : jade_interp)) + "</div></div><div class=\"images\">");
 if ( props.images)
 {
 if ( props.images.length === 1)
@@ -45,10 +45,6 @@ buf.push("</div>");
 }
 }
 buf.push("<hr/><h2>Meta</h2><table><tr><th>year</th><tr><td>" + (jade.escape(null == (jade_interp = props.date) ? "" : jade_interp)) + "</td></tr></tr>");
-if ( !props.background)
-{
-buf.push("<tr><th>background</th><tr><td>lorempixel.com</td></tr></tr>");
-}
 if ( props.meta)
 {
 // iterate props.meta
@@ -119,6 +115,10 @@ buf.push("</tr>");
   }
 }).call(this);
 
+}
+if ( !props.background)
+{
+buf.push("<tr><th>background</th><tr><td>lorempixel.com</td></tr></tr>");
 }
 buf.push("</table><hr/></div></div></div>");}.call(this,"props" in locals_for_with?locals_for_with.props:typeof props!=="undefined"?props:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 }};

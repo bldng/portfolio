@@ -8,8 +8,8 @@
 	.content--container
 		if props.hero
 			.hero !{props.hero}
-		.description 
-			h2 Description
+		.description(class=props.longtext ? "longtext" : "")
+			h2= props.subtitle || 'Description'
 			div !{props.content}
 		.images
 			if props.images
@@ -30,11 +30,6 @@
 					th year
 					tr
 						td= props.date
-				if !props.background
-					tr
-						th background
-						tr
-							td lorempixel.com
 
 				if props.meta
 					for item in props.meta
@@ -43,8 +38,12 @@
 								th= k
 								tr
 									td !{v}
+				if !props.background
+					tr
+						th background
+						tr
+							td lorempixel.com
 
 
 
 			hr
-
