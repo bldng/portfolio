@@ -20,7 +20,7 @@ about_me = [
 	{answer: '<img src="img/misc/portrait.png"/>', tags: ['look']},
 	{answer: calcAge(1985), tags: ['age', 'old']},
 	{answer: '18.12.1985', tags: ['birthyear']},
-	{answer: '<ul><li>Interaction Design</li><li>UX</li><li>Frontent Development</li><li>Installations</li></ul>', tags:['offer']},
+	{answer: '<ul><li>Interaction Design</li><li>UX</li><li>Frontend Development</li><li>Installations / Exhibitions</li></ul>', tags:['offer']},
 	{answer: '<ul><li><del>LinkedIn</del></li><li><del>Facebook</del></li><li><del>twitter</del></li><li><a href="https://github.com/bldng" target="_blank">Github</a></li><li><a href="https://github.com/bldng" target="_blank">codepen</a></li></ul>', tags: ['socialmedia']},
 	{answer: '<a href="img/misc/cv_web_2015.pdf" target="_blank"><img src="http://cl.ly/image/020I2T0A090J/oeOPL7tU7cJ2DXgOCuJYOibufj1yNQFfZojs5eGaPzc.png"/><br>Download</a>', tags: ['cv']},
 	{answer: '<div class="longtext"><h3>Work Experience</h3><p><strong>SVS/BirdLife nature conservation centre Neeracherried</strong><br>2014<br>Planning and implementing the redesign for the interactive permanent exhibition.</p><p><strong>Product Management Intern Leica Camera AG</strong><br>Summer 2013<br>Involved with various existing and self initiated projects in the field of innovation and workflows.</p><p><strong>Spocal GmbH</strong><br>January 2012 – September 2013<br>Lead Designer at a Zurich startup. Responsible for UX / UI and branding of the student platform Spocal as well as the corporate-oriented product Beekeeper.</p><p><strong>Freelance web and graphic design</strong><br>Since 2006<br>mainly in the area of individuals and medium-sized companies.</p></div>', tags: ['references', 'work experience']},
