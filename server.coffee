@@ -8,7 +8,7 @@ sentiment  = require 'sentiment'
 bodyParser = require 'body-parser'
 
 
-sentiment_options = {'no':0, 'stop':0, 'never': 0, 'hell': 0, 'fuck': -.5, 'sucks': 0, 'hurt': 0, 'fucking': 0, 'sorry': 1, 'apologise': 1, 'apologised': 1, 'apologises': 1, 'apologising': 1, 'apologize': 1, 'apologized': 1, 'apologizes': 1, 'apologizing': 1, 'apology': 1}
+sentiment_options = {'no':0, 'stop':0, 'shoot':0, 'never': 0, 'hell': 0, 'fuck': -.5, 'sucks': 0, 'hurt': 0, 'fucking': 0, 'sorry': 1, 'apologise': 1, 'apologised': 1, 'apologises': 1, 'apologising': 1, 'apologize': 1, 'apologized': 1, 'apologizes': 1, 'apologizing': 1, 'apology': 1}
 
 # load you API keys here
 secret  = require './data/secrets.json'
