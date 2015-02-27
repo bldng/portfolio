@@ -321,6 +321,9 @@ body.howdoyulikethat {
   color: #ffdc00 !important;
   background: #b10dc9 !important;
 }
+body.howdoyulikethat .main {
+  background: linear-gradient(to bottom, #ffdc00 0%, #b10dc9 100%);
+}
 a {
   overflow-wrap: break-word;
   -o-text-overflow: ellipsis;
@@ -368,7 +371,11 @@ a {
   opacity: 0;
   pointer-events: none;
 }
-.main.video {
+.main.hide-temporary {
+  -webkit-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(0.2);
+  pointer-events: none;
   opacity: 0;
 }
 .content--project {

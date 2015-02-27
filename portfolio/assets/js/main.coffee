@@ -4,6 +4,7 @@ content   = require '../../public/js/content.json'
 global.$  = require 'jquery'
 textFit   = require './vendor/textFit.min.js'
 itemslide = require './vendor/itemslide.min.js'
+fastclick = require 'fastclick'
 
 global.context = ''
 askAfter = 20
@@ -41,7 +42,7 @@ page '/', (ctx)->
 				$( ".conversation" ).append "<div class='bot'>Well, this is awkward. I can't find the page you wanted :(</div>"
 			setTimeout(tellError, 4000)
 		focus = () ->
-			$('.conversation--input').focus()
+			$('.conversation--input').focus() if !isMobile
 		setTimeout(focus, 2500)
 		# console.log('/');
 page()
@@ -140,6 +141,7 @@ $('.main').on 'click', '.conversation--input', () ->
 
 
 # Start conversation
+fastclick(document.body)
 greet = () ->
 	if (/msie|trident/i).test(navigator.userAgent)
     	$('.conversation').append '<div class="bot">Internet Explorer. Why wou...</div>'
@@ -150,14 +152,13 @@ greet = () ->
     # $('.conversation--input').focus() if !isMobile
 setTimeout(greet, 1600)
 
-$("video").bind "play", () ->
-	vid = setInterval ->
-		if !$("video").get(0).paused
-			$('.main.hidden').addClass 'video'
-		else
-			$('.main.hidden').removeClass 'video'
-			clearInterval(vid)
-	, 1000
+
+$('.hide-button').on
+  mouseenter: ->
+    $('.main.hidden').addClass 'hide-temporary'
+  mouseleave: ->
+    $('.main.hidden').removeClass 'hide-temporary'
+
 
 $('.conversation').bind "DOMSubtreeModified", () ->
 	# $(document).scrollTop( $(document).height() )

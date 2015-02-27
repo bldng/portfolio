@@ -30,6 +30,9 @@ body
 		font-family: "Comic Sans MS" !important
 		color: yellow !important
 		background: purple !important
+		.main
+			background: linear-gradient(to bottom, yellow 0%, purple 100%)
+
 
 a
 	overflow-wrap: break-word;
@@ -76,7 +79,9 @@ a
 			transition: .4s
 			opacity: 0
 			pointer-events:none
-	&.video
+	&.hide-temporary
+		transform: scale(.2)
+		pointer-events: none
 		opacity: 0
 
 // @-moz-document url-prefix()

@@ -9,6 +9,7 @@
     "coffeeify": "^1.0.0",
     "css-pipeline": "0.2.x",
     "dynamic-content": "^0.2.0",
+    "fastclick": "^1.0.6",
     "jade": "1.x",
     "jadeify": "^4.0.1",
     "jquery": "^2.1.3",
