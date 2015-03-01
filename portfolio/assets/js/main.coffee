@@ -147,7 +147,10 @@ greet = () ->
     	$('.conversation').append '<div class="bot">Internet Explorer. Why wou...</div>'
     	$('.conversation').append '<div class="bot--delay">Nevermind, Hi!</div>'
     else
-    	$('.conversation').append '<div class="bot">Hey!</div>'
+    	if localStorage.getItem('projects') != null
+    		$('.conversation').append '<div class="bot">Hi! Welcome back :)</div>'
+    	else
+    		$('.conversation').append '<div class="bot">Hey!</div>'
 
     # $('.conversation--input').focus() if !isMobile
 setTimeout(greet, 1600)

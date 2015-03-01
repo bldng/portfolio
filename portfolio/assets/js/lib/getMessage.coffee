@@ -132,3 +132,4 @@ module.exports = (message) ->
 			$( ".conversation" ).append say( data.reply, 'bot')
 
 		# localStorage.setItem('conversation', $('.conversation').html() )
+		localStorage.setItem('projects', projects.length )

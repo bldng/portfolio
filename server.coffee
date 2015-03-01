@@ -46,7 +46,6 @@ app.get '/api', (req, res) ->
 	calcProbalityGerman =  () ->
 		if req.query.body.length > 3
 			langlist = whatLanguage.detect message, 30
-			console.log langlist
 			filtered = langlist.filter (item) ->
 				item[0] == 'german'
 			# filtered[0][1] if filtered.length > 0 else 0
@@ -58,6 +57,7 @@ app.get '/api', (req, res) ->
 			return 0
 
 	language = calcProbalityGerman()
+	console.log language
 
 	options =
 		uri : 'https://api.wit.ai/message?v=201410226&access_token='+wit+'&q='+message.toLowerCase()+state
@@ -74,9 +74,8 @@ app.get '/api', (req, res) ->
 		console.log 'req: ' + message + ' (' + profanity + ') ==> ' + response.intent
 		res.json response
 
-	else if language > .3 || message == 'hallo' || message == 'hoi'
+	else if language >= .32 || message == 'hallo' || message == 'hoi' || message == 'hallo!'
 		response = {}
-		# {"_text":"hi","intent":"greeting","entities":{},"confidence":0.81,"category":"default","reply":"what can I do for you?"}
 		response.intent = 'language'
 		response.confidence= 1
 		response.category = 'default'
