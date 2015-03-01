@@ -6,15 +6,17 @@ vocabulary = require './data/vocabulary.json'
 Client     = require 'node-wolfram'
 sentiment  = require 'sentiment'
 bodyParser = require 'body-parser'
+LangDetect = require 'languagedetect'
 
 
 sentiment_options = {'no':0, 'stop':0, 'shoot':0, 'never': 0, 'hell': 0, 'fuck': -.5, 'sucks': 0, 'hurt': 0, 'fucking': 0, 'sorry': 1, 'apologise': 1, 'apologised': 1, 'apologises': 1, 'apologising': 1, 'apologize': 1, 'apologized': 1, 'apologizes': 1, 'apologizing': 1, 'apology': 1}
 
 # load you API keys here
-secret  = require './data/secrets.json'
-wit     = secret.wit
-twilio  = secret.twilio
-Wolfram = new Client(secret.wolfram)
+secret       = require './data/secrets.json'
+wit          = secret.wit
+twilio       = secret.twilio
+Wolfram      = new Client(secret.wolfram)
+whatLanguage = new LangDetect()
 
 client = require('twilio')(secret.twilio.sid, secret.twilio.token)
 
@@ -41,6 +43,22 @@ app.get '/api', (req, res) ->
 	checkprofanity = sentiment message, sentiment_options
 	profanity = checkprofanity.comparative
 
+	calcProbalityGerman =  () ->
+		if req.query.body.length > 3
+			langlist = whatLanguage.detect message, 30
+			console.log langlist
+			filtered = langlist.filter (item) ->
+				item[0] == 'german'
+			# filtered[0][1] if filtered.length > 0 else 0
+			if filtered.length > 0
+				return filtered[0][1]
+			else
+				return 0
+		else
+			return 0
+
+	language = calcProbalityGerman()
+
 	options =
 		uri : 'https://api.wit.ai/message?v=201410226&access_token='+wit+'&q='+message.toLowerCase()+state
 
@@ -56,7 +74,17 @@ app.get '/api', (req, res) ->
 		console.log 'req: ' + message + ' (' + profanity + ') ==> ' + response.intent
 		res.json response
 
+	else if language > .3 || message == 'hallo' || message == 'hoi'
+		response = {}
+		# {"_text":"hi","intent":"greeting","entities":{},"confidence":0.81,"category":"default","reply":"what can I do for you?"}
+		response.intent = 'language'
+		response.confidence= 1
+		response.category = 'default'
+		response.reply = pickSentence('german')
+		res.json response
+
 	else
+		# call wit.ai and process the result
 		rp(options)
 			.then((response)->
 				parsed = JSON.parse response
