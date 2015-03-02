@@ -118,6 +118,14 @@ module.exports = (message) ->
 			global.context = ''
 			$( ".conversation" ).append say( 'No problem! Maybe some other time.', 'bot' )
 
+		else if data.intent == 'bye'
+			global.context = ''
+			$( ".conversation" ).append say( data.reply, 'bot')
+			stillThere = () ->
+				global.context = ''
+				$( ".conversation" ).append say( 'Uh, I can still see you ...', 'bot' )
+			setTimeout(stillThere, 5000)
+
 		else if data.intent == 'unhappy'
 			allProjects = []
 			for item in projects

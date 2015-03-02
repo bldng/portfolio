@@ -168,7 +168,7 @@ pickSentence = (key, category) ->
 		sentence = vocabulary[key][random]
 		return sentence.replace "${category}", category
 	else
-		return "Sorry, I don't know what say"
+		return "Sorry, I don't know what to say"
 
 server = app.listen process.env.PORT || 61987, ->
 	host = server.address().address
