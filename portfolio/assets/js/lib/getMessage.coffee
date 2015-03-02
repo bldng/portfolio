@@ -20,6 +20,7 @@ about_me = [
 	{answer: '<img src="img/misc/portrait.png"/>', tags: ['look']},
 	{answer: calcAge(1985), tags: ['age', 'old']},
 	{answer: '18.12.1985', tags: ['birthyear']},
+	{answer: '<a href="https://github.com/bldng/portfolio" target="_blank">View on github</a>', tags: ['tech']},
 	{answer: 'Gerhard Bliedung. Born in Germany, then moved to Switzerland to study Interaction Design. Likes speculative design, road bikes and technology.', tags:['general']},
 	{answer: '<ul><li>Interaction and UX Design</li><li>Frontend Development</li><li>Installations / Exhibitions</li></ul>', tags:['offer']},
 	{answer: '<ul><li><del>LinkedIn</del></li><li><del>Facebook</del></li><li><del>twitter</del></li><li><a href="https://github.com/bldng" target="_blank">Github</a></li><li><a href="https://github.com/bldng" target="_blank">codepen</a></li></ul>', tags: ['socialmedia']},

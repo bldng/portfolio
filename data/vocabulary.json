@@ -13,6 +13,19 @@
 	":)"
 	],
 
+"weird":[
+	"Umm, ok.",
+	"Ok...",
+	"okay...",
+	"oookay..."
+	],
+
+"siri": [
+	"you must confuse me with someone else",
+	"sorry, wrong agent :)",
+	"ok human ;)"
+],
+
 "sailor":[
 	"Dude! Do you want to apologize for that?",
 	"Seriously? You better apologize now",
@@ -115,6 +128,7 @@
 
 "bye":[
 	"Ok, bye!",
-	"Bye, I guess."
+	"Bye, I guess.",
+	"thank you for your time! bye."
 	]
 }
