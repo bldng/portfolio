@@ -24,7 +24,18 @@
 	"you must confuse me with someone else",
 	"sorry, wrong agent :)",
 	"ok human ;)"
-],
+	],
+
+"sorry":[
+	"sorry!",
+	"aww.. ok"
+	],
+
+"no": [
+	"nah",
+	"maybe later",
+	"I will think about it."
+	],
 
 "sailor":[
 	"Dude! Do you want to apologize for that?",

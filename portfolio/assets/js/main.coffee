@@ -151,11 +151,14 @@ greet = () ->
     		$('.conversation').append '<div class="bot">Hi! Welcome back :)</div>'
     	else
     		$('.conversation').append '<div class="bot">Hey!</div>'
-
-    # $('.conversation--input').focus() if !isMobile
 setTimeout(greet, 1600)
 
+offerHelp = () ->
+	if $('.conversation').children().length < 3
+		$('.conversation').append "<div class='bot'>If you want to know more about Gerhard and his work, just type a question in the input field below. If you are not in the mood to talk, that's fine too — Just type 'normal website' for an overview of his projects.</div>"
+setTimeout(offerHelp, 25000)
 
+# hide the main button on videos / hero elements
 $('.hide-button').on
   mouseenter: ->
     $('.main.hidden').addClass 'hide-temporary'

@@ -130,6 +130,14 @@ app.get '/api', (req, res) ->
 					pickSentence(intent)
 					respond
 
+				else if intent = 'sorry'
+					pickSentence(intent)
+					respond
+
+				else if intent = 'no'
+					pickSentence(intent)
+					respond
+
 				else if intent = 'compliment'
 					pickSentence(intent)
 					respond

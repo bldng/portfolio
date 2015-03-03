@@ -43,6 +43,7 @@ module.exports =
       base: "views/templates/"
       pattern: "**/*.jade"
       out: "js/templates.js"
+      concat: true
       )
   ]
 

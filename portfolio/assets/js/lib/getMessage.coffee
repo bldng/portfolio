@@ -123,8 +123,8 @@ module.exports = (message) ->
 			$( ".conversation" ).append say( data.reply, 'bot')
 			stillThere = () ->
 				global.context = ''
-				$( ".conversation" ).append say( 'Uh, I can still see you ...', 'bot' )
-			setTimeout(stillThere, 5000)
+				$( ".conversation" ).append say( 'Uh, you are still here ...', 'bot' )
+			setTimeout(stillThere, 8000)
 
 		else if data.intent == 'unhappy'
 			allProjects = []
@@ -141,5 +141,4 @@ module.exports = (message) ->
 		else
 			$( ".conversation" ).append say( data.reply, 'bot')
 
-		# localStorage.setItem('conversation', $('.conversation').html() )
 		localStorage.setItem('projects', projects.length )
